@@ -1,0 +1,10 @@
+.buildpath
+.project
+*.patch
+.idea/
+.git/
+vendor/
+temp/
+*.lock
+.phpintel/
+.DS_Store

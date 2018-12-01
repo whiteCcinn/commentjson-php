@@ -1,0 +1,19 @@
+{
+  "name": "whiteCcinn/commentjson-php",
+  "description": "Similar to python commentjson，More powerful，use PHP implementation",
+  "authors": [
+    {
+      "name": "whiteCcinn",
+      "email": "471113744@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "CommentJson\\": "src/"
+    }
+  }
+}
