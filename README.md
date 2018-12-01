@@ -6,7 +6,7 @@ Similar to python commentjson，More powerful，use PHP implementation
 Installation
 ============
 
-    composer require whiteCcinn/commentjson-php
+    composer require ccinn/commentjson-php
 
 Basic Usage
 ===========
