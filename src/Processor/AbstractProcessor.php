@@ -27,8 +27,9 @@ abstract class AbstractProcessor
     /**
      * @param string $text
      * @param bool   $filter
+     * @param bool   $check
      *
      * @return mixed
      */
-    abstract public function handle(string $text ,bool $filter = true);
+    abstract public function handle(string $text ,bool $filter = true, bool $check = true);
 }

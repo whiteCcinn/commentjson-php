@@ -31,4 +31,27 @@ class CommentJson implements CommentJsonInterface
 
         return $result;
     }
+
+    /**
+     * @param string $text
+     *
+     * @return array
+     */
+    public static function consult(string $text): array
+    {
+        $stripText = (new MultiSingleLineCommentJson())->handle($text, true, false);
+
+        $result = [];
+        $chunk = '';
+        foreach (explode(PHP_EOL, $stripText) as $segment) {
+            $chunk .= $segment;
+            $decodeJson = json_decode($chunk, true);
+            if (json_last_error() === JSON_ERROR_NONE) {
+                $result[] = $decodeJson;
+                $chunk = '';
+            }
+        }
+
+        return $result;
+    }
 }

@@ -9,5 +9,7 @@ namespace CommentJson;
 
 interface CommentJsonInterface
 {
-    public static function loads(string $text, bool $filter = true);
+    public static function loads(string $text, bool $filter = true): string;
+
+    public static function consult(string $text): array;
 }

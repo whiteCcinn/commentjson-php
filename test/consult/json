@@ -1,0 +1,40 @@
+{
+  "name": "Vaidik Kapoor", # Person's name
+  "location": "Delhi, India", // Person's location
+
+  # Section contains info about
+  // person's appearance
+  "appearance": {
+      "hair_color": "black",
+      "eyes_color": "black",
+      "height": "6"
+  }
+}
+
+{
+  "name": "Vaidik Kapoor", # Person's name
+  "location": "Delhi, India", // Person's location
+
+  # Section contains info about
+  // person's appearance
+  "appearance": {
+      "hair_color": "black",
+      "eyes_color": "black",
+      "height": "6"
+  }
+}
+
+[
+    {
+      "name": "Vaidik Kapoor", # Person's name
+      "location": "Delhi, India", // Person's location
+
+      # Section contains info about
+      // person's appearance
+      "appearance": {
+          "hair_color": "black",
+          "eyes_color": "black",
+          "height": "6"
+      }
+    }
+]

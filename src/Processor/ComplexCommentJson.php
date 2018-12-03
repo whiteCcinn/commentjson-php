@@ -17,21 +17,20 @@ class ComplexCommentJson extends AbstractProcessor
     private $comment = 0;
 
     /**
-     * Strip comments from JSON string.
-     *
      * @param string $json
      * @param bool   $filter
+     * @param bool   $check
      *
-     * @return mixed|string
+     * @return string
      */
-    public function handle(string $json, bool $filter = true): string
+    public function handle(string $json, bool $filter = true, bool $check = true): string
     {
         if (!\preg_match('%\/(\/|\*)%', $json)) {
             return $json;
         }
         $this->reset();
 
-        return $this->doStrip($json);
+        return $this->doStrip($json, $check);
     }
 
     /**
@@ -46,10 +45,11 @@ class ComplexCommentJson extends AbstractProcessor
 
     /**
      * @param string $json
+     * @param bool   $check
      *
      * @return string
      */
-    private function doStrip(string $json): string
+    private function doStrip(string $json, bool $check): string
     {
         $return = '';
         while (isset($json[++$this->index])) {
@@ -65,7 +65,7 @@ class ComplexCommentJson extends AbstractProcessor
             $this->index += $char . $next === '*/' ? 1 : 0;
         }
 
-        if (is_null(json_decode($return, true)) && json_last_error() !== JSON_ERROR_NONE) {
+        if ($check && is_null(json_decode($return, true)) && json_last_error() !== JSON_ERROR_NONE) {
             if ($this->next instanceof AbstractProcessor) {
                 return $this->next->handle($json);
             } else {

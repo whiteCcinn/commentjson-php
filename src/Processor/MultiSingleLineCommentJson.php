@@ -17,15 +17,16 @@ class MultiSingleLineCommentJson extends AbstractProcessor
     /**
      * @param string $text
      * @param bool   $filter
+     * @param bool   $check
      *
      * @return string
      */
-    public function handle(string $text, bool $filter = true): string
+    public function handle(string $text, bool $filter = true, bool $check = true): string
     {
         $regex = '/\s*(#|\/{2}).*$/';
         $regex_inline = '/(:?(?:\s)*([A-Za-z\d\.{}]*)|((?<=\").*\"),?)(?:\s)*(((#|(\/{2})).*)|)$/';
 
-        $lines = explode('\\n', $text);
+        $lines = explode(PHP_EOL, $text);
 
         foreach ($lines as $index => $line) {
             if (preg_match($regex, $line)) {
@@ -49,7 +50,7 @@ class MultiSingleLineCommentJson extends AbstractProcessor
 
         $json = implode(PHP_EOL, $lines);
 
-        if (is_null(json_decode($json, true)) && json_last_error() !== JSON_ERROR_NONE) {
+        if ($check && is_null(json_decode($json, true)) && json_last_error() !== JSON_ERROR_NONE) {
             if ($this->next instanceof AbstractProcessor) {
                 return $this->next->handle($text);
             } else {

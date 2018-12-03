@@ -3,18 +3,18 @@
 require_once dirname(__FILE__, 2) . '/vendor/autoload.php';
 
 $json = <<<JSON
-{\\n
-     "name": "Vaidik Kapoor", # Person's name\\n
-     "location": "Delhi, India", // Person's location\\n
-\\n
-     # Section contains info about\\n
-     // person's appearance\\n
-     "appearance": {\\n
-         "hair_color": "black",\\n
-         "eyes_color": "black",\\n
-         "height": "6"\\n
-     }\\n
- }\\n
+{\n
+     "name": "Vaidik Kapoor", # Person's name\n
+     "location": "Delhi, India", // Person's location\n
+\n
+     # Section contains info about\n
+     // person's appearance\n
+     "appearance": {\n
+         "hair_color": "black",\n
+         "eyes_color": "black",\n
+         "height": "6"\n
+     }\n
+ }\n
 JSON;
 
 $result = \CommentJson\CommentJson::loads($json);
